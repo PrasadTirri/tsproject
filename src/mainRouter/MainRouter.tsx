@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from '../store/store';
-import Navbarr from '../components/Navbar';
+import Nav from '../components/navbar/Navbar';
 // import Navbarr from '../components/Navbar'
 
 
@@ -14,7 +14,7 @@ const MainRouter: React.FunctionComponent<IAppProps> = (props) => {
     <Provider store={store} >
     
     {/* <Navbar /> */}
-    <Navbarr />
+    <Nav />
     <main>
         <Outlet />
     </main>

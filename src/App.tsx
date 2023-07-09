@@ -2,11 +2,11 @@ import React from 'react';
 import {  Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
 import './App.css';
-import Home from './components/Home';
-import About from './components/About';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
 import Login from './Credentials/Login';
-import Products from './components/Products';
-import Cart from './components/Cart';
+import Products from './pages/products/Products';
+import Cart from './pages/cart/Cart';
 import MainRouter from './mainRouter/MainRouter';
 
 

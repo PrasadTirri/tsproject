@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useActionData } from 'react-router-dom';
-import { useAppSelector } from '../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { add, remove } from '../store/cartSlice';
+import { add, remove } from '../../store/cartSlice';
 
 interface Item {
   id: number;
@@ -17,10 +17,11 @@ interface Item {
 const Cart: React.FunctionComponent = () => {
   const dispatch=useDispatch()
   const {posts}=useAppSelector(state=> state.cart)
+  console.log("Cart", posts);
 
-  // const RemoveItem=(id)=>{
-  //   dispatch(remove(id))
-  // }
+  const RemoveItem=(id:number)=>{
+    dispatch(remove(id))
+  }
 
   const cartItems=posts.map((item)=>(
     <div key={item.id} className='col-3 col-md-3 p-3'>
@@ -39,7 +40,7 @@ const Cart: React.FunctionComponent = () => {
         INR :{item.price}
       </Card.Text>
     <Card.Footer>
-      {/* <Button variant="primary" onClick={()=>RemoveItem(item.id)}>Remove</Button> */}
+      <Button variant="primary" className='bg-danger' onClick={()=>RemoveItem(item.id)}>Remove</Button>
       </Card.Footer>
   </Card>
     

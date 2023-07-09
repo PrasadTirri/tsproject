@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-type Post ={
+export type Post ={
   id: number;
   title: string;
   image:string;
@@ -33,12 +33,7 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    add:(state, action:PayloadAction<Post>)=>{
-      state.posts.push(action.payload)
-    }, 
-    remove:(state, action)=>{
-      state.posts.filter((item)=>item.id !== action.payload)
-    }
+    
   },
   extraReducers: (builder) => {
     builder

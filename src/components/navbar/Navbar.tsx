@@ -5,14 +5,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../store/hooks';
+import { useAppSelector } from '../../store/hooks';
+import cartSlice from '../../store/cartSlice';
+import postSlice from '../../store/postSlice';
 
-type Length = {
-  cartItem:number
-}
+
 
 const App: React.FunctionComponent = () => {
   const cartItemCount=useAppSelector(state=> state.cart)
+  console.log(cartItemCount,'pstts')
   return (
     <>
      <Navbar expand="lg" className="bg-info shadow">
@@ -29,7 +30,7 @@ const App: React.FunctionComponent = () => {
             
           </Nav>
           <Navbar.Collapse className='justify-content-end'>
-            <Nav.Link to="/cart" as={Link}>Cart 0 </Nav.Link>
+            <Nav.Link to="/cart" as={Link}>Cart {cartItemCount.posts.length} </Nav.Link>
             </Navbar.Collapse>
         </Navbar.Collapse>
       </Container>
