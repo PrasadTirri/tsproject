@@ -14,7 +14,10 @@ const MainRouter: React.FunctionComponent<IAppProps> = (props) => {
     <Provider store={store} >
     
     {/* <Navbar /> */}
+    <header>
     <Nav />
+    </header>
+    
     <main>
         <Outlet />
     </main>

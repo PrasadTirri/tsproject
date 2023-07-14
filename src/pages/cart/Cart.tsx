@@ -5,6 +5,7 @@ import { useAppSelector } from '../../store/hooks';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { add, remove } from '../../store/cartSlice';
+import Navba from '../../components/navbar/Navbar';
 
 interface Item {
   id: number;
@@ -40,7 +41,8 @@ const Cart: React.FunctionComponent = () => {
         INR :{item.price}
       </Card.Text>
     <Card.Footer>
-      <Button variant="primary" className='bg-danger' onClick={()=>RemoveItem(item.id)}>Remove</Button>
+      <Button  className='bg-danger m-2' onClick={()=>RemoveItem(item.id)}>Remove</Button>
+      <Button variant="success">Buy</Button>
       </Card.Footer>
   </Card>
     
@@ -48,8 +50,17 @@ const Cart: React.FunctionComponent = () => {
   ))
   return (
     <>
-    <h1>Cart Items</h1>
-    {cartItems}
+    <Navba />
+    < div className='container'>
+    < div className='row'>
+      <div className='bg-secondary'>
+      <h1 className='text-white'>Cart Items</h1>
+      </div>
+    
+    {cartItems.length>0 ? cartItems : <p className='mt-5'>No Items in the Cart</p>}
+    </div>
+    </div>
+   
     </>
   );
 };

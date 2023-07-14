@@ -2,16 +2,12 @@ import * as React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/hooks';
-import cartSlice from '../../store/cartSlice';
-import postSlice from '../../store/postSlice';
+import './Navbar.css'
 
 
-
-const App: React.FunctionComponent = () => {
+const Navba: React.FunctionComponent = () => {
   const cartItemCount=useAppSelector(state=> state.cart)
   console.log(cartItemCount,'pstts')
   return (
@@ -30,7 +26,8 @@ const App: React.FunctionComponent = () => {
             
           </Nav>
           <Navbar.Collapse className='justify-content-end'>
-            <Nav.Link to="/cart" as={Link}>Cart {cartItemCount.posts.length} </Nav.Link>
+            <Nav.Link to="/cart" as={Link}>Cart  </Nav.Link>
+            <Nav.Link to="/cart" as={Link}><p className='cart-count'>{cartItemCount.posts.length}</p>  </Nav.Link>
             </Navbar.Collapse>
         </Navbar.Collapse>
       </Container>
@@ -39,4 +36,4 @@ const App: React.FunctionComponent = () => {
   );
 };
 
-export default App;
+export default Navba;
